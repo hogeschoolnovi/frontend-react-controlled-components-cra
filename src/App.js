@@ -4,12 +4,12 @@ import './App.css';
 function App() {
   const [formName, setFormName] = useState('');
   const [formAge, setFormAge] = useState(0);
-  const [formReferrer, setFormReferrer] = useState('anders');
+  const [formNewsletter, setFormNewsletter] = useState(false);
   const [formComments, setFormComments] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formComments, formReferrer, formAge, formName);
+    console.log(formComments, formNewsletter, formAge, formName);
   }
 
   return (
@@ -43,21 +43,6 @@ function App() {
       <fieldset>
         <legend>Jouw review</legend>
 
-        <label htmlFor="referrer">
-          Hoe heb je dit recept gevonden?
-          <select
-            name="found-through"
-            id="referrer"
-            value={formReferrer}
-            onChange={(e) => setFormReferrer(e.target.value)}
-          >
-            <option value="google">Google</option>
-            <option value="vriend">Vriend</option>
-            <option value="advertentie">Advertentie</option>
-            <option value="anders">Anders</option>
-          </select>
-        </label>
-
         <label htmlFor="recipe-comments">
           Opmerkingen:
           <textarea
@@ -70,6 +55,16 @@ function App() {
             onChange={(e) => setFormComments(e.target.value)}
           >
           </textarea>
+        </label>
+
+        <label htmlFor="recipe-newsletter">
+          <input
+            type="checkbox"
+            name="newsletter"
+            checked={formNewsletter}
+            onChange={() => setFormNewsletter(!formNewsletter)}
+          />
+          Ik schrijf me in voor de nieuwsbrief
         </label>
 
         <button type="submit">

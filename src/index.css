@@ -15,3 +15,7 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
