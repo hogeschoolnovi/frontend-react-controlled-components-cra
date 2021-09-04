@@ -7,7 +7,7 @@ function App() {
   const [formState, setFormState] = useState({
     name: '',
     age: 0,
-    referrer: 'anders',
+    newsletter: false,
     comments: '',
   })
 
@@ -19,9 +19,12 @@ function App() {
   // handleFormChange wordt afgevuurd bij elke verandering en zorgt dan dat het huidige state object wordt gekopieerd
   // alleen de object key van het bijbehorende inputveld wordt overschreven met een nieuwe waarde
   function handleFormChange(e) {
+    const changedFieldName = e.target.name;
+    const newValue = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value,
+      [changedFieldName]: newValue,
     });
 
     console.log(`The value of input ${e.target.name} has just been set to ${e.target.value}`);
@@ -58,21 +61,6 @@ function App() {
       <fieldset>
         <legend>Jouw review</legend>
 
-        <label htmlFor="referrer">
-          Hoe heb je dit recept gevonden?
-          <select
-            name="found-through"
-            id="referrer"
-            value={formState.referrer}
-            onChange={handleFormChange}
-          >
-            <option value="google">Google</option>
-            <option value="vriend">Vriend</option>
-            <option value="advertentie">Advertentie</option>
-            <option value="anders">Anders</option>
-          </select>
-        </label>
-
         <label htmlFor="recipe-comments">
           Opmerkingen:
           <textarea
@@ -85,6 +73,16 @@ function App() {
             onChange={handleFormChange}
           >
           </textarea>
+        </label>
+
+        <label htmlFor="recipe-newsletter">
+          <input
+            type="checkbox"
+            name="newsletter"
+            checked={formState.newsletter}
+            onChange={handleFormChange}
+          />
+          Ik schrijf me in voor de nieuwsbrief
         </label>
 
         <button type="submit">
