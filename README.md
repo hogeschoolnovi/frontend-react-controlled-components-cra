@@ -14,18 +14,22 @@ In jouw formulier komen de volgende inputs te staan:
 * _Inschrijven voor de nieuwsbrief_ - checkbox
 * _Versturen-knop_ (van type `submit`)
 
-Dit project is opgezet met behulp van [Create React App](https://github.com/facebook/create-react-app).
+Dit project is opgezet met behulp van [Create React App](https://github.com/facebook/create-react-app) (React versie 18.2.0).
 
 ## Applicatie starten
 
 Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de `node_modules` door het volgende
 commando in de terminal te runnen:
 
-`npm install`
+```shell
+npm install
+```
 
 Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
-`npm start`
+```shell
+npm start
+```
 
 of gebruik de WebStorm knop (npm start). Open http://localhost:3000 om de pagina in de browser te bekijken. Begin met
 het maken van wijzigingen in `src/App.js`: elke keer als je een bestand opslaat, zullen de wijzigingen te zien zijn op
